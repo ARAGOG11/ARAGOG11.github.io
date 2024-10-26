@@ -95,7 +95,7 @@ export function Page() {
               </div>
               <div className="md:w-2/3 md:pl-8">
                 <p className="text-lg mb-4 text-gray-300">
-                  Greetings, Earthlings! I'm ARAGOG11, a robotics engineer with a passion for exploring the frontiers of
+                  Greetings, Earthlings! I&apos;m ARAGOG11, a robotics engineer with a passion for exploring the frontiers of
                   technology and space. My mission is to bridge the gap between science fiction and reality through innovative
                   robotics solutions.
                 </p>
