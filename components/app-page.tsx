@@ -16,7 +16,7 @@ export function Page() {
       const sections = ['home', 'about', 'projects', 'skills', 'contact']
       const currentPosition = window.scrollY + 100
 
-      for (let section of sections) {
+      for (const section of sections) {
         const element = document.getElementById(section)
         if (element && currentPosition >= element.offsetTop && currentPosition < element.offsetTop + element.offsetHeight) {
           setCurrentSection(section)
