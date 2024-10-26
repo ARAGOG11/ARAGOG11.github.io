@@ -47,7 +47,7 @@ export function Page() {
 
       <header id="home" className="h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[url('/stars.jpg')] opacity-50"></div>
+          <div className="absolute inset-0 bg-[url('/stars.jpg')] bg-cover bg-center opacity-50"></div>
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <motion.path
               d="M0,0 L100,0 L100,100 L0,100 Z"
