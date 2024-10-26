@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Cpu, Rocket, Star, Send } from 'lucide-react'
+import { Cpu, Code, Wrench, PenTool, Rocket, Brain, Eye, BarChart, Cog, Star, Send, Github, Linkedin, Twitter, Instagram, Mail } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -89,7 +89,7 @@ export function Page() {
           <Card className="bg-gray-900 border-gray-800">
             <CardContent className="p-8 flex flex-col md:flex-row items-center">
               <div className="md:w-1/3 mb-6 md:mb-0">
-                <div className="w-48 h-48 mx-auto bg-purple-600 rounded-full overflow-hidden p-2">
+                <div className="w-48 h-48 mx-auto bg-gray-900 rounded-full p-2">
                   <img 
                     src="/atul.png?height=192&width=192" 
                     alt="ARAGOG11" 
@@ -112,13 +112,22 @@ export function Page() {
           </Card>
         </section>
 
-        <section id="projects" className="py-20">
-          <h2 className="text-4xl font-bold mb-8 text-center text-purple-300">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section id="projects" className="py-16">
+          <h2 className="text-3xl font-bold mb-6 text-center text-purple-300">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { title: 'Mars Rover Prototype', icon: <Cpu className="w-12 h-12 text-purple-400" /> },
-              { title: 'Space Debris Cleanup Drone', icon: <Rocket className="w-12 h-12 text-purple-400" /> },
-              { title: 'Exoplanet Atmospheric Analyzer', icon: <Star className="w-12 h-12 text-purple-400" /> },
+              {
+                title: 'Maze Navigator',
+                icon: <Cpu className="w-12 h-12 text-purple-400" />,
+                description: 'An autonomous robot capable of navigating complex mazes using advanced algorithms and sensor fusion. This project showcases problem-solving in unknown environments.',
+                link: null
+              },
+              {
+                title: 'Line Follower Robot',
+                icon: <Rocket className="w-12 h-12 text-purple-400" />,
+                description: 'A PID-controlled robot that precisely follows line paths. This project demonstrates the application of control systems in robotics for smooth and accurate navigation.',
+                link: 'https://github.com/ARAGOG11/Line_Follower_PID'
+              },
             ].map((project, index) => (
               <motion.div
                 key={index}
@@ -127,15 +136,22 @@ export function Page() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="bg-gray-900 border-gray-800">
-                  <CardContent className="p-6">
-                    <div className="flex items-center mb-4">
+                  <CardContent className="p-4">
+                    <div className="flex items-center mb-2">
                       {project.icon}
-                      <h3 className="text-xl font-semibold ml-4 text-purple-300">{project.title}</h3>
+                      <h3 className="text-lg font-semibold ml-3 text-purple-300">{project.title}</h3>
                     </div>
-                    <p className="text-gray-400">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                      dolore magna aliqua.
-                    </p>
+                    <p className="text-sm text-gray-400 mb-3">{project.description}</p>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                      >
+                        View Project &rarr;
+                      </a>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -143,18 +159,22 @@ export function Page() {
           </div>
         </section>
 
-        <section id="skills" className="py-20">
-          <h2 className="text-4xl font-bold mb-8 text-center text-purple-300">Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <section id="skills" className="py-16">
+          <h2 className="text-3xl font-bold mb-6 text-center text-purple-300">Skills</h2>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
             {[
-              'Robotics',
-              'AI & Machine Learning',
-              'Space Technology',
-              'Mechanical Engineering',
-              'Computer Vision',
-              'Embedded Systems',
-              'Data Analysis',
-              'Project Management',
+              { name: 'Robotics', icon: Cpu },
+              { name: 'Embedded C', icon: Code },
+              { name: 'Arduino', icon: Cog },
+              { name: 'C++', icon: Code },
+              { name: 'C', icon: Code },
+              { name: 'AutoCAD', icon: PenTool },
+              { name: 'Mechanical Engineering', icon: Wrench },
+              { name: 'Embedded Systems', icon: Cpu },
+              { name: 'Space Technology', icon: Rocket },
+              { name: 'AI & Machine Learning', icon: Brain },
+              { name: 'Computer Vision', icon: Eye },
+              { name: 'Data Analysis', icon: BarChart },
             ].map((skill, index) => (
               <motion.div
                 key={index}
@@ -163,9 +183,9 @@ export function Page() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="bg-gray-900 border-gray-800">
-                  <CardContent className="p-4 text-center">
-                    <Cpu className="w-8 h-8 text-purple-400 mx-auto mb-2" />
-                    <p className="font-medium text-gray-300">{skill}</p>
+                  <CardContent className="p-3 text-center">
+                    <skill.icon className="w-6 h-6 text-purple-400 mx-auto mb-1" />
+                    <p className="text-xs font-medium text-gray-300">{skill.name}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -174,34 +194,28 @@ export function Page() {
         </section>
 
         <section id="contact" className="py-20">
-          <h2 className="text-4xl font-bold mb-8 text-center text-purple-300">Contact</h2>
+          <h2 className="text-4xl font-bold mb-8 text-center text-purple-300">Connect With Me</h2>
           <div className="max-w-2xl mx-auto">
             <Card className="bg-gray-900 border-gray-800">
               <CardContent className="p-8">
-                <form>
-                  <div className="mb-4">
-                    <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-300">
-                      Name
-                    </label>
-                    <Input type="text" id="name" required className="bg-gray-800 border-gray-700 text-white" />
-                  </div>
-                  <div className="mb-4">
-                    <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-300">
-                      Email
-                    </label>
-                    <Input type="email" id="email" required className="bg-gray-800 border-gray-700 text-white" />
-                  </div>
-                  <div className="mb-4">
-                    <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-300">
-                      Message
-                    </label>
-                    <Textarea id="message" rows={4} required className="bg-gray-800 border-gray-700 text-white" />
-                  </div>
-                  <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white">
-                    Send Message
-                    <Send className="w-4 h-4 ml-2" />
-                  </Button>
-                </form>
+                <div className="flex justify-center space-x-8">
+                  {[
+                    { icon: Github, href: 'https://github.com/ARAGOG11' },
+                    { icon: Mail, href: 'mailto:01aragog@gmail.com' },
+                    { icon: Linkedin, href: 'https://www.linkedin.com/in/atul-khadwal-26196029a/' },
+                    { icon: Instagram, href: 'https://instagram.com/_khadwal_' },
+                  ].map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-purple-400 transition-colors"
+                    >
+                      <social.icon className="w-10 h-10" />
+                    </a>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           </div>
