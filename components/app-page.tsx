@@ -89,8 +89,12 @@ export function Page() {
           <Card className="bg-gray-900 border-gray-800">
             <CardContent className="p-8 flex flex-col md:flex-row items-center">
               <div className="md:w-1/3 mb-6 md:mb-0">
-                <div className="w-48 h-48 mx-auto bg-purple-600 rounded-full overflow-hidden">
-                  <img src="/atul.png?height=192&width=192" alt="ARAGOG11" className="w-full h-full object-cover" />
+                <div className="w-48 h-48 mx-auto bg-purple-600 rounded-full overflow-hidden p-2">
+                  <img 
+                    src="/atul.png?height=192&width=192" 
+                    alt="ARAGOG11" 
+                    className="w-full h-full object-cover rounded-full"
+                  />
                 </div>
               </div>
               <div className="md:w-2/3 md:pl-8">
